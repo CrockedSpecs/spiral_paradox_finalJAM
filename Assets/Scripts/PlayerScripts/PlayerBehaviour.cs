@@ -33,7 +33,7 @@ public class PlayerBehaviour : MonoBehaviour
     {
         PlayerMovement();
         Aiming();
-        Shoot();
+        //Shoot();
 
     }
 
@@ -45,7 +45,7 @@ public class PlayerBehaviour : MonoBehaviour
 
         float rotationY = transform.rotation.eulerAngles.y;
 
-        Debug.Log(movement.x + " " + rotationY);
+        //Debug.Log(movement.x + " " + rotationY);
         // Determina el estado según el movimiento y rotación del personaje.
         bool isMovingForward = false;
         bool isMovingBackward = false;
@@ -117,6 +117,8 @@ public class PlayerBehaviour : MonoBehaviour
             }
         }
     }
+
+    /*
     void Shoot()
     {
         shootTimer += Time.deltaTime;
@@ -134,6 +136,7 @@ public class PlayerBehaviour : MonoBehaviour
             StartCoroutine(ReloadWeapon());
         }
     }
+    */
 
     IEnumerator ReloadWeapon()
     {
