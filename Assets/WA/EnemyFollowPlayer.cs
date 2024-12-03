@@ -4,12 +4,16 @@ public class EnemyFollowPlayer : MonoBehaviour
 {
     //Declarations
     public float movementSpeed;
+    public float movementSpeedChange;
+
     [SerializeField] private Transform playerTransform;
     public bool isLive;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        movementSpeedChange = movementSpeed;
+
         isLive = true;
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
     }
@@ -22,6 +26,6 @@ public class EnemyFollowPlayer : MonoBehaviour
 
     private void Movment()
     {
-        transform.position = Vector3.MoveTowards(transform.position, playerTransform.position, movementSpeed * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, playerTransform.position, movementSpeedChange * Time.deltaTime);
     }
 }
