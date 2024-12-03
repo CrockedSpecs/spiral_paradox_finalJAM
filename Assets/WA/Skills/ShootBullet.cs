@@ -11,10 +11,13 @@ public class ShootBullet : MonoBehaviour
     private int bulletDamage;
     private int bulletPenetration;
 
+    public Transform playerFollow;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         bulletDamage = 1;
+        playerFollow = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     // Update is called once per frame
@@ -28,7 +31,7 @@ public class ShootBullet : MonoBehaviour
         //Throw the pearls
         if (Input.GetMouseButtonDown(0))
         {
-            Instantiate(Bullet, transform.position + new Vector3(0f, 1f, 0f), transform.rotation);
+            Instantiate(Bullet, transform.position + new Vector3(0f, 1f, 0f), playerFollow.rotation);
         }
     }
 

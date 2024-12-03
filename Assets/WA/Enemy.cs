@@ -7,6 +7,8 @@ public class Enemy : MonoBehaviour
 
     private EnemyFollowPlayer enemyFollowPlayer;
 
+    [SerializeField] private GameObject experience;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -63,6 +65,7 @@ public class Enemy : MonoBehaviour
         life--;
         if(life <= 0)
         {
+            Instantiate(experience, transform.position, experience.transform.rotation);
             Destroy(gameObject);
         }
     }

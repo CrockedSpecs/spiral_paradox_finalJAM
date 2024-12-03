@@ -12,7 +12,7 @@ public class PlayerLevel : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        experienceToNextLevel = 1;
+        experienceToNextLevel = 10;
     }
 
     // Update is called once per frame
@@ -23,9 +23,10 @@ public class PlayerLevel : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-
         if (other.CompareTag("Experience"))
         {
+            Destroy(other.gameObject);
+
             experience++;
             if (experience >= experienceToNextLevel)
             {
@@ -37,7 +38,7 @@ public class PlayerLevel : MonoBehaviour
     private void NextLevel()
     {
         experience = experience - experienceToNextLevel;
-        experienceToNextLevel = experienceToNextLevel + 0;
+        experienceToNextLevel = experienceToNextLevel + (experienceToNextLevel * 20 / 100);
         levelUpScript.ShowSkillsToLevelUp(); 
     }
 }
