@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Skiills : MonoBehaviour
+public class Skills : MonoBehaviour
 {
     //Declarations
     private int skill;
@@ -10,7 +10,7 @@ public class Skiills : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        InvokeRepeating("LevelUpSkill", 5, 60);
+
     }
 
     // Update is called once per frame

@@ -3,7 +3,12 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Bullet
+  - Zone1
+  - Zone2
+  - TrapArea
+  - ThornDrone
   layers:
   - Default
   - TransparentFX
