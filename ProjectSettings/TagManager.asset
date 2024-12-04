@@ -10,6 +10,7 @@ TagManager:
   - TrapArea
   - ThornDrone
   - Experience
+  - Enemy
   layers:
   - Default
   - TransparentFX
