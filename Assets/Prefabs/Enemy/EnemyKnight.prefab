@@ -3092,6 +3092,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   experience: {fileID: 5970808281243098039, guid: 138565368848b4c43b744cd527bb3b5a,
     type: 3}
+  hitEffect: {fileID: 8762405910555896786, guid: fcb74f28d107e284e80af037bfec14ca,
+    type: 3}
 --- !u!114 &-6846753789370078958
 MonoBehaviour:
   m_ObjectHideFlags: 0
