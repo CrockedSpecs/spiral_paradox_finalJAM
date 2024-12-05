@@ -201,3 +201,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   area: {fileID: 152870504003021874}
+  activationEffect: {fileID: 4515497926535975121, guid: bddb971e34eb14d48be30c7b922eb077,
+    type: 3}
+  destructionEffect: {fileID: 1804206099813350, guid: 4dd02b5f854b6c84990fbeb810abffe4,
+    type: 3}

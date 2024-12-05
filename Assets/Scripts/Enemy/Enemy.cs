@@ -3,12 +3,12 @@ using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour
 {
-    //Declarations
+    // Declarations
     private int life;
-
     private EnemyFollowPlayer enemyFollowPlayer;
 
     [SerializeField] private GameObject experience;
+    [SerializeField] private GameObject hitEffect; // Prefab del efecto visual
 
     private GameObject player;
     private NavMeshAgent agent;
@@ -17,7 +17,6 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         life = 1;
-
         enemyFollowPlayer = GetComponent<EnemyFollowPlayer>();
 
         player = GameObject.FindGameObjectWithTag("Player");
@@ -34,6 +33,7 @@ public class Enemy : MonoBehaviour
     {
         agent.destination = player.transform.position;
     }
+
 
     private void OnTriggerEnter(Collider other)
     {
@@ -73,11 +73,28 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    // Método para reproducir el efecto visual
+    public void PlayHitEffect()
+    {
+        if (hitEffect != null)
+        {
+            // Instancia el efecto en la posición del enemigo
+            GameObject effect = Instantiate(hitEffect, transform.position, Quaternion.identity);
+
+            // Destruye el efecto después de un tiempo
+            Destroy(effect, 4f); 
+        }
+    }
+
+    // Método para reducir la vida del enemigo y activar el efecto visual
     private void ChangeLife()
     {
         life--;
-        if(life <= 0)
+        PlayHitEffect(); // Activa el efecto cada vez que el enemigo pierde vida
+
+        if (life <= 0)
         {
+            // Instancia experiencia y destruye el enemigo si la vida llega a 0
             Instantiate(experience, transform.position, experience.transform.rotation);
             Destroy(gameObject);
         }
