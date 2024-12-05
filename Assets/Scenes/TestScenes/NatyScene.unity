@@ -276,7 +276,7 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 3392001787744880743}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &706868661
+--- !u!1 &855022899
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -284,18 +284,27 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
+<<<<<<< HEAD:Assets/Scenes/NatyScene.unity
+  - component: {fileID: 855022902}
+  - component: {fileID: 855022901}
+  - component: {fileID: 855022900}
+=======
   - component: {fileID: 706868664}
   - component: {fileID: 706868663}
   - component: {fileID: 706868662}
   - component: {fileID: 706868665}
   - component: {fileID: 706868666}
+>>>>>>> main:Assets/Scenes/TestScenes/NatyScene.unity
   m_Layer: 0
-  m_Name: Main Camera
-  m_TagString: MainCamera
+  m_Name: Directional Light
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+<<<<<<< HEAD:Assets/Scenes/NatyScene.unity
+--- !u!114 &855022900
+=======
 --- !u!81 &706868662
 AudioListener:
   m_ObjectHideFlags: 0
@@ -371,56 +380,95 @@ Transform:
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 11.799, y: 0, z: 0}
 --- !u!114 &706868665
+>>>>>>> main:Assets/Scenes/TestScenes/NatyScene.unity
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 706868661}
+  m_GameObject: {fileID: 855022899}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 23c1ce4fb46143f46bc5cb5224c934f6, type: 3}
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clearColorMode: 0
-  backgroundColorHDR: {r: 0.025, g: 0.07, b: 0.19, a: 0}
-  clearDepth: 1
-  volumeLayerMask:
-    serializedVersion: 2
-    m_Bits: 1
-  volumeAnchorOverride: {fileID: 0}
-  antialiasing: 0
-  SMAAQuality: 2
-  dithering: 0
-  stopNaNs: 0
-  taaSharpenStrength: 0.5
-  TAAQuality: 1
-  taaSharpenMode: 0
-  taaRingingReduction: 0
-  taaHistorySharpening: 0.35
-  taaAntiFlicker: 0.5
-  taaMotionVectorRejection: 0
-  taaAntiHistoryRinging: 0
-  taaBaseBlendFactor: 0.875
-  taaJitterScale: 1
-  physicalParameters:
-    m_Iso: 200
-    m_ShutterSpeed: 0.005
-    m_Aperture: 16
-    m_FocusDistance: 10
-    m_BladeCount: 5
-    m_Curvature: {x: 2, y: 11}
-    m_BarrelClipping: 0.25
-    m_Anamorphism: 0
-  flipYMode: 0
-  xrRendering: 1
-  fullscreenPassthrough: 0
-  allowDynamicResolution: 0
-  customRenderingSettings: 0
-  invertFaceCulling: 0
-  probeLayerMask:
+  m_Version: 3
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_RenderingLayers: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_ShadowRenderingLayers: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+  m_SoftShadowQuality: 0
+--- !u!108 &855022901
+Light:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 855022899}
+  m_Enabled: 1
+  serializedVersion: 10
+  m_Type: 1
+  m_Shape: 0
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 1
+  m_Range: 10
+  m_SpotAngle: 30
+  m_InnerSpotAngle: 21.80208
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 0
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+    m_CullingMatrixOverride:
+      e00: 1
+      e01: 0
+      e02: 0
+      e03: 0
+      e10: 0
+      e11: 1
+      e12: 0
+      e13: 0
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+    m_UseCullingMatrixOverride: 0
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+<<<<<<< HEAD:Assets/Scenes/NatyScene.unity
+  m_RenderingLayerMask: 1
+  m_Lightmapping: 4
+  m_LightShadowCasterMode: 0
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 1
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_UseBoundingSphereOverride: 0
+  m_UseViewFrustumForShadowCasterCull: 1
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
+--- !u!4 &855022902
+Transform:
+=======
   hasPersistentHistory: 0
   screenSizeOverride: {x: 0, y: 0, z: 0, w: 0}
   screenCoordScaleBias: {x: 0, y: 0, z: 0, w: 0}
@@ -511,10 +559,22 @@ MonoBehaviour:
       isFptlEnabled: 0
 --- !u!114 &706868666
 MonoBehaviour:
+>>>>>>> main:Assets/Scenes/TestScenes/NatyScene.unity
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD:Assets/Scenes/NatyScene.unity
+  m_GameObject: {fileID: 855022899}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
+  m_LocalPosition: {x: 24.129305, y: 13.810683, z: 3.707254}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+=======
   m_GameObject: {fileID: 706868661}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -610,6 +670,7 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d461c345ada76d14f94fe72087cec0f9, type: 3}
+>>>>>>> main:Assets/Scenes/TestScenes/NatyScene.unity
 --- !u!1001 &885800400
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -673,9 +734,76 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 885800400}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1004000070
-GameObject:
+--- !u!1001 &1218969887
+PrefabInstance:
   m_ObjectHideFlags: 0
+<<<<<<< HEAD:Assets/Scenes/NatyScene.unity
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1395889800201091382, guid: 05f78becd2454d84a907ac413e42a0c9,
+        type: 3}
+      propertyPath: m_Name
+      value: playerContainer
+      objectReference: {fileID: 0}
+    - target: {fileID: 6788087000763303741, guid: 05f78becd2454d84a907ac413e42a0c9,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 5.9015527
+      objectReference: {fileID: 0}
+    - target: {fileID: 6788087000763303741, guid: 05f78becd2454d84a907ac413e42a0c9,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6788087000763303741, guid: 05f78becd2454d84a907ac413e42a0c9,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -3.4302068
+      objectReference: {fileID: 0}
+    - target: {fileID: 6788087000763303741, guid: 05f78becd2454d84a907ac413e42a0c9,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6788087000763303741, guid: 05f78becd2454d84a907ac413e42a0c9,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6788087000763303741, guid: 05f78becd2454d84a907ac413e42a0c9,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6788087000763303741, guid: 05f78becd2454d84a907ac413e42a0c9,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6788087000763303741, guid: 05f78becd2454d84a907ac413e42a0c9,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6788087000763303741, guid: 05f78becd2454d84a907ac413e42a0c9,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6788087000763303741, guid: 05f78becd2454d84a907ac413e42a0c9,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 05f78becd2454d84a907ac413e42a0c9, type: 3}
+=======
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -934,6 +1062,7 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
+>>>>>>> main:Assets/Scenes/TestScenes/NatyScene.unity
 --- !u!1001 &1388282329
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1112,6 +1241,15 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
+<<<<<<< HEAD:Assets/Scenes/NatyScene.unity
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &3130993443180506131 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 489681627473046309, guid: 70e9aa0899203324c87b5f67f8852c6c,
+    type: 3}
+  m_PrefabInstance: {fileID: 8389544583929693746}
+  m_PrefabAsset: {fileID: 0}
+=======
   m_LocalEulerAnglesHint: {x: 69.503, y: 15.514, z: 31.172}
 --- !u!1001 &259282508728681445
 PrefabInstance:
@@ -1425,6 +1563,7 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 408b46cbab8bc8c4f81da451c8009ca6, type: 3}
+>>>>>>> main:Assets/Scenes/TestScenes/NatyScene.unity
 --- !u!1001 &3392001787744880743
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1438,11 +1577,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Knights_Level (3)
       objectReference: {fileID: 0}
+<<<<<<< HEAD:Assets/Scenes/NatyScene.unity
+=======
     - target: {fileID: 5844213033752540872, guid: 64216a52fe572844caacd95e29af1317,
         type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+>>>>>>> main:Assets/Scenes/TestScenes/NatyScene.unity
     - target: {fileID: 8489750428611828965, guid: 64216a52fe572844caacd95e29af1317,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1812,6 +1954,19 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+<<<<<<< HEAD:Assets/Scenes/NatyScene.unity
+    - target: {fileID: 489681627473046309, guid: 70e9aa0899203324c87b5f67f8852c6c,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 489681627473046309, guid: 70e9aa0899203324c87b5f67f8852c6c,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 489681627473046309, guid: 70e9aa0899203324c87b5f67f8852c6c,
+=======
     - target: {fileID: 1017161282364083109, guid: 626a3bcb0f04d6e43934377526ea176e,
         type: 3}
       propertyPath: m_IsActive
@@ -1823,61 +1978,102 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2122069938030052146, guid: 626a3bcb0f04d6e43934377526ea176e,
+>>>>>>> main:Assets/Scenes/TestScenes/NatyScene.unity
         type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
+<<<<<<< HEAD:Assets/Scenes/NatyScene.unity
+    - target: {fileID: 489681627473046309, guid: 70e9aa0899203324c87b5f67f8852c6c,
+=======
     - target: {fileID: 2122069938030052146, guid: 626a3bcb0f04d6e43934377526ea176e,
+>>>>>>> main:Assets/Scenes/TestScenes/NatyScene.unity
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
+<<<<<<< HEAD:Assets/Scenes/NatyScene.unity
+    - target: {fileID: 489681627473046309, guid: 70e9aa0899203324c87b5f67f8852c6c,
+=======
     - target: {fileID: 2122069938030052146, guid: 626a3bcb0f04d6e43934377526ea176e,
+>>>>>>> main:Assets/Scenes/TestScenes/NatyScene.unity
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+<<<<<<< HEAD:Assets/Scenes/NatyScene.unity
+    - target: {fileID: 489681627473046309, guid: 70e9aa0899203324c87b5f67f8852c6c,
+=======
     - target: {fileID: 2122069938030052146, guid: 626a3bcb0f04d6e43934377526ea176e,
+>>>>>>> main:Assets/Scenes/TestScenes/NatyScene.unity
         type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
+<<<<<<< HEAD:Assets/Scenes/NatyScene.unity
+    - target: {fileID: 489681627473046309, guid: 70e9aa0899203324c87b5f67f8852c6c,
+=======
     - target: {fileID: 2122069938030052146, guid: 626a3bcb0f04d6e43934377526ea176e,
+>>>>>>> main:Assets/Scenes/TestScenes/NatyScene.unity
         type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
+<<<<<<< HEAD:Assets/Scenes/NatyScene.unity
+    - target: {fileID: 489681627473046309, guid: 70e9aa0899203324c87b5f67f8852c6c,
+=======
     - target: {fileID: 2122069938030052146, guid: 626a3bcb0f04d6e43934377526ea176e,
+>>>>>>> main:Assets/Scenes/TestScenes/NatyScene.unity
         type: 3}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
+<<<<<<< HEAD:Assets/Scenes/NatyScene.unity
+    - target: {fileID: 489681627473046309, guid: 70e9aa0899203324c87b5f67f8852c6c,
+=======
     - target: {fileID: 2122069938030052146, guid: 626a3bcb0f04d6e43934377526ea176e,
+>>>>>>> main:Assets/Scenes/TestScenes/NatyScene.unity
         type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
+<<<<<<< HEAD:Assets/Scenes/NatyScene.unity
+    - target: {fileID: 489681627473046309, guid: 70e9aa0899203324c87b5f67f8852c6c,
+=======
     - target: {fileID: 2122069938030052146, guid: 626a3bcb0f04d6e43934377526ea176e,
+>>>>>>> main:Assets/Scenes/TestScenes/NatyScene.unity
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
+<<<<<<< HEAD:Assets/Scenes/NatyScene.unity
+    - target: {fileID: 489681627473046309, guid: 70e9aa0899203324c87b5f67f8852c6c,
+=======
     - target: {fileID: 2122069938030052146, guid: 626a3bcb0f04d6e43934377526ea176e,
+>>>>>>> main:Assets/Scenes/TestScenes/NatyScene.unity
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
+<<<<<<< HEAD:Assets/Scenes/NatyScene.unity
+    - target: {fileID: 489681627473046309, guid: 70e9aa0899203324c87b5f67f8852c6c,
+=======
     - target: {fileID: 2122069938030052146, guid: 626a3bcb0f04d6e43934377526ea176e,
+>>>>>>> main:Assets/Scenes/TestScenes/NatyScene.unity
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+<<<<<<< HEAD:Assets/Scenes/NatyScene.unity
+    - target: {fileID: 4197336887382081550, guid: 70e9aa0899203324c87b5f67f8852c6c,
+=======
     - target: {fileID: 3669049034414451413, guid: 626a3bcb0f04d6e43934377526ea176e,
         type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8208755427530079542, guid: 626a3bcb0f04d6e43934377526ea176e,
+>>>>>>> main:Assets/Scenes/TestScenes/NatyScene.unity
         type: 3}
       propertyPath: m_Name
       value: Vikings_Level_01
@@ -1907,19 +2103,27 @@ Transform:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+<<<<<<< HEAD:Assets/Scenes/NatyScene.unity
+=======
   - {fileID: 706868664}
   - {fileID: 1004000072}
   - {fileID: 1656371201}
   - {fileID: 740053358}
+>>>>>>> main:Assets/Scenes/TestScenes/NatyScene.unity
   - {fileID: 1388282329}
   - {fileID: 247173080}
   - {fileID: 6430878172944233950}
   - {fileID: 6063973187276817768}
   - {fileID: 3596725992488759514}
   - {fileID: 3392001787744880743}
+<<<<<<< HEAD:Assets/Scenes/NatyScene.unity
+  - {fileID: 855022902}
+  - {fileID: 1218969887}
+=======
   - {fileID: 9058196741088637049}
   - {fileID: 259282508728681445}
   - {fileID: 1013090025290512322}
   - {fileID: 3106059851275634254}
   - {fileID: 6345388743262019198}
   - {fileID: 1324604729787839811}
+>>>>>>> main:Assets/Scenes/TestScenes/NatyScene.unity

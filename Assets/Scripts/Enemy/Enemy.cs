@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour
 {
@@ -9,12 +10,30 @@ public class Enemy : MonoBehaviour
     [SerializeField] private GameObject experience;
     [SerializeField] private GameObject hitEffect; // Prefab del efecto visual
 
+    private GameObject player;
+    private NavMeshAgent agent;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         life = 1;
         enemyFollowPlayer = GetComponent<EnemyFollowPlayer>();
+
+        player = GameObject.FindGameObjectWithTag("Player");
+        agent = GetComponent<NavMeshAgent>();
     }
+
+    // Update is called once per frame
+    void FixedUpdate()
+    {
+        followPlayer();
+    }
+
+    void followPlayer()
+    {
+        agent.destination = player.transform.position;
+    }
+
 
     private void OnTriggerEnter(Collider other)
     {
@@ -22,6 +41,7 @@ public class Enemy : MonoBehaviour
         {
             ChangeLife();
             other.GetComponent<Bullet>().ChangeBulletPenetration();
+            other.gameObject.SetActive(false);
         }
         if (other.CompareTag("ThornDrone"))
         {
@@ -53,20 +73,20 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    // Método para reproducir el efecto visual
+    // MÃ©todo para reproducir el efecto visual
     public void PlayHitEffect()
     {
         if (hitEffect != null)
         {
-            // Instancia el efecto en la posición del enemigo
+            // Instancia el efecto en la posiciÃ³n del enemigo
             GameObject effect = Instantiate(hitEffect, transform.position, Quaternion.identity);
 
-            // Destruye el efecto después de un tiempo
+            // Destruye el efecto despuÃ©s de un tiempo
             Destroy(effect, 4f); 
         }
     }
 
-    // Método para reducir la vida del enemigo y activar el efecto visual
+    // MÃ©todo para reducir la vida del enemigo y activar el efecto visual
     private void ChangeLife()
     {
         life--;

@@ -4,6 +4,12 @@
 TagManager:
   serializedVersion: 2
   tags:
+<<<<<<< HEAD
+  - FireBall
+  - Bullet
+  - Wall
+  - Props
+=======
   - Bullet
   - Zone1
   - Zone2
@@ -12,6 +18,7 @@ TagManager:
   - Experience
   - Enemy
   - Floor
+>>>>>>> main
   layers:
   - Default
   - TransparentFX
