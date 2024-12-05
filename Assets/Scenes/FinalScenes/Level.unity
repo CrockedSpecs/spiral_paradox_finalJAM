@@ -2372,6 +2372,62 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3344785933626672589, guid: b2aaa0dd1adf6f947869f2871ce17bd4,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3344785933626672589, guid: b2aaa0dd1adf6f947869f2871ce17bd4,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3344785933626672589, guid: b2aaa0dd1adf6f947869f2871ce17bd4,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 2564541012909342219, guid: 099bb7c8c0b7672478a882ff10180e9f,
+        type: 3}
+    - target: {fileID: 3344785933626672589, guid: b2aaa0dd1adf6f947869f2871ce17bd4,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3344785933626672589, guid: b2aaa0dd1adf6f947869f2871ce17bd4,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: CallPlayMusic
+      objectReference: {fileID: 0}
+    - target: {fileID: 3344785933626672589, guid: b2aaa0dd1adf6f947869f2871ce17bd4,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: CallAudioManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3344785933626672589, guid: b2aaa0dd1adf6f947869f2871ce17bd4,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3344785933626672589, guid: b2aaa0dd1adf6f947869f2871ce17bd4,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 8300000, guid: 4a9fcf9e31a8c664c9397c216dd8e350, type: 3}
+    - target: {fileID: 3344785933626672589, guid: b2aaa0dd1adf6f947869f2871ce17bd4,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.AudioClip, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 3491959942975739199, guid: b2aaa0dd1adf6f947869f2871ce17bd4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3711943203627525838, guid: b2aaa0dd1adf6f947869f2871ce17bd4,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5972122094247967286, guid: b2aaa0dd1adf6f947869f2871ce17bd4,
         type: 3}
       propertyPath: pauseButton
@@ -2402,6 +2458,11 @@ PrefabInstance:
       propertyPath: skills.Array.data[3]
       value: 
       objectReference: {fileID: 1889875114}
+    - target: {fileID: 6331741977854262740, guid: b2aaa0dd1adf6f947869f2871ce17bd4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6616316669376739661, guid: b2aaa0dd1adf6f947869f2871ce17bd4,
         type: 3}
       propertyPath: m_Name
