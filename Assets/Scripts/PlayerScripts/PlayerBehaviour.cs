@@ -12,8 +12,8 @@ public class PlayerBehaviour : MonoBehaviour
 
     [Header("shooting")]
     public Transform bulletSpawner;
-    public float shootInterval = 1f;
-    private float shootTimer = 1f;
+    public float shootInterval = 0.2f;
+    private float shootTimer = 0.2f;
     public int initAmmo = 6;
 
     [Header("Aiming")]
@@ -33,7 +33,15 @@ public class PlayerBehaviour : MonoBehaviour
     {
         PlayerMovement();
         Aiming();
-        Shoot();
+        shootTimer += Time.deltaTime;
+        if (Input.GetMouseButton(0) && shootTimer >= shootInterval && initAmmo > 0)
+        {
+            Shoot();
+        }
+        else if (initAmmo == 0 || Input.GetKeyDown(KeyCode.R))
+        {
+            StartCoroutine(ReloadWeapon());
+        }
 
     }
 
@@ -44,8 +52,6 @@ public class PlayerBehaviour : MonoBehaviour
         rb.MovePosition(rb.position + movement.normalized * _moveSpeed * movePU * Time.deltaTime);
 
         float rotationY = transform.rotation.eulerAngles.y;
-
-        Debug.Log(movement.x + " " + rotationY);
         // Determina el estado según el movimiento y rotación del personaje.
         bool isMovingForward = false;
         bool isMovingBackward = false;
@@ -119,25 +125,19 @@ public class PlayerBehaviour : MonoBehaviour
     }
     void Shoot()
     {
-        shootTimer += Time.deltaTime;
-        if (Input.GetMouseButton(0) && shootTimer >= shootInterval && initAmmo > 0)
-        {
-            initAmmo--;
+            
             shootTimer = 0f; // Reinicia el temporizador
 
             GameObject bullet = bulletPool.Instance.requestBullet();
             bullet.transform.position = bulletSpawner.position;
             bullet.transform.rotation = bulletSpawner.rotation;
-        }
-        else if (initAmmo == 0 || Input.GetKeyDown(KeyCode.R))
-        {
-            StartCoroutine(ReloadWeapon());
-        }
+            initAmmo--;
+
     }
 
     IEnumerator ReloadWeapon()
     {
-        yield return new WaitForSeconds(3f); // Simula el tiempo de recarga
+        yield return new WaitForSeconds(1f); // Simula el tiempo de recarga
         initAmmo = 6; // Restaura la munición al valor inicial
     }
 }

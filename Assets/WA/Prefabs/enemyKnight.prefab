@@ -1792,7 +1792,7 @@ GameObject:
   - component: {fileID: 6914324814279559837}
   - component: {fileID: -5456295366629534241}
   m_Layer: 0
-  m_Name: Character_Knight_01_Black
+  m_Name: enemyKnight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

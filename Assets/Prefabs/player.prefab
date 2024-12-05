@@ -299,7 +299,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2781831060095346833}
-  - component: {fileID: 3311951578392906466}
   m_Layer: 0
   m_Name: basic Shoot
   m_TagString: Untagged
@@ -322,18 +321,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 95795026751753179}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3311951578392906466
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2282765145177570835}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0519b82eae52ab049b7240a631b5cb83, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2588670287556707323
 GameObject:
   m_ObjectHideFlags: 0
@@ -1094,13 +1081,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f9d6ab0f7f7ba04cb6ad297885a286a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _moveSpeed: 5
   movePU: 1
-  bulletPrefab: {fileID: 3031069294934635296, guid: f4e4aeb62898c7540a957c102ae9dfbe,
-    type: 3}
+  movement: {x: 0, y: 0, z: 0}
+  animator: {fileID: 0}
   bulletSpawner: {fileID: 2781831060095346833}
+  shootInterval: 1
+  initAmmo: 6
   mousePos: {x: 0, y: 0, z: 0}
   aiming: 0
   weapon: {fileID: 729448712098140513}
+  cam: {fileID: 0}
+  rb: {fileID: 0}
 --- !u!1 &6432240905058747926
 GameObject:
   m_ObjectHideFlags: 0
@@ -1975,10 +1967,6 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 5989398718638353741}
-    - targetCorrespondingSourceObject: {fileID: 8890765977370420359, guid: 3d53158324d0d90449744584cef6b151,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 7776026848335844731}
   m_SourcePrefab: {fileID: 100100000, guid: 3d53158324d0d90449744584cef6b151, type: 3}
 --- !u!4 &95795026751753179 stripped
 Transform:
@@ -2013,18 +2001,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.051469274, y: 0.22100481, z: 0.37772384}
   m_Center: {x: 0.00000023841858, y: 0.0009859278, z: 0.108361445}
---- !u!114 &7776026848335844731
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 729448712098140513}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0519b82eae52ab049b7240a631b5cb83, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &8578382205276393132
 PrefabInstance:
   m_ObjectHideFlags: 0
