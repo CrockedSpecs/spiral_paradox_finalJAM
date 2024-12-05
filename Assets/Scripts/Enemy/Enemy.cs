@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour
 {
@@ -9,18 +10,29 @@ public class Enemy : MonoBehaviour
 
     [SerializeField] private GameObject experience;
 
+    private GameObject player;
+    private NavMeshAgent agent;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         life = 1;
 
         enemyFollowPlayer = GetComponent<EnemyFollowPlayer>();
+
+        player = GameObject.FindGameObjectWithTag("Player");
+        agent = GetComponent<NavMeshAgent>();
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        
+        followPlayer();
+    }
+
+    void followPlayer()
+    {
+        agent.destination = player.transform.position;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -29,6 +41,7 @@ public class Enemy : MonoBehaviour
         {
             ChangeLife();
             other.GetComponent<Bullet>().ChangeBulletPenetration();
+            other.gameObject.SetActive(false);
         }
         if (other.CompareTag("ThornDrone"))
         {
