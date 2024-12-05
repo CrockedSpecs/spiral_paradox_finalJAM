@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 2601879378299104866}
   - component: {fileID: 5356038907984580277}
   - component: {fileID: -3722104222147562297}
-  - component: {fileID: 6035870742721333240}
   m_Layer: 0
   m_Name: Bullet
   m_TagString: Bullet
@@ -31,9 +30,10 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.3}
+  m_ConstrainProportionsScale: 1
+  m_Children:
+  - {fileID: 2722624652445637045}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1193497240990076651
@@ -64,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ad198f8bd7db36a469e4e166f08eb0dd, type: 2}
+  - {fileID: 2100000, guid: d9302e9f59873b54cbc2a8eb8c15ef95, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -120,15 +120,82 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
---- !u!114 &6035870742721333240
-MonoBehaviour:
+--- !u!1001 &8457616377200016677
+PrefabInstance:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 5226355645188758520}
+    m_Modifications:
+    - target: {fileID: 5807332322784453776, guid: 2106bdc31fb0559458bac8af9858cae8,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.07
+      objectReference: {fileID: 0}
+    - target: {fileID: 5807332322784453776, guid: 2106bdc31fb0559458bac8af9858cae8,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5807332322784453776, guid: 2106bdc31fb0559458bac8af9858cae8,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.23
+      objectReference: {fileID: 0}
+    - target: {fileID: 5807332322784453776, guid: 2106bdc31fb0559458bac8af9858cae8,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 5807332322784453776, guid: 2106bdc31fb0559458bac8af9858cae8,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5807332322784453776, guid: 2106bdc31fb0559458bac8af9858cae8,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 5807332322784453776, guid: 2106bdc31fb0559458bac8af9858cae8,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5807332322784453776, guid: 2106bdc31fb0559458bac8af9858cae8,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5807332322784453776, guid: 2106bdc31fb0559458bac8af9858cae8,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 5807332322784453776, guid: 2106bdc31fb0559458bac8af9858cae8,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5925678632975034801, guid: 2106bdc31fb0559458bac8af9858cae8,
+        type: 3}
+      propertyPath: m_InitialEventNameOverriden
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6743574955496143534, guid: 2106bdc31fb0559458bac8af9858cae8,
+        type: 3}
+      propertyPath: m_Name
+      value: Kikoken (2)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2106bdc31fb0559458bac8af9858cae8, type: 3}
+--- !u!4 &2722624652445637045 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5807332322784453776, guid: 2106bdc31fb0559458bac8af9858cae8,
+    type: 3}
+  m_PrefabInstance: {fileID: 8457616377200016677}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8445963295418156454}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b3fecfd63422654e80afe39d73020ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
