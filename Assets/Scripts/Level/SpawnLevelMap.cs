@@ -100,6 +100,6 @@ public class SpawnLevelMap : MonoBehaviour
         yield return new WaitForSeconds(0.0001f);
         BakeNavMesh();
         yield return new WaitForSeconds(0.0001f);
-        SpawnPlayer();
+        //SpawnPlayer();
     }
 }

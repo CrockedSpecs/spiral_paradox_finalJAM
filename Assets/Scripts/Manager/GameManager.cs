@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -22,13 +24,13 @@ public class GameManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     //PauseGame
@@ -36,7 +38,7 @@ public class GameManager : MonoBehaviour
     {
         if (!isPaused)
         {
-            Time.timeScale = 0; 
+            Time.timeScale = 0;
         }
         else
         {
