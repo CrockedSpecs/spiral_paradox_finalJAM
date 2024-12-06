@@ -15,7 +15,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6788087000763303741
 Transform:
   m_ObjectHideFlags: 0
@@ -1770,6 +1770,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34225abe094d45d48807e2cb7cc1fa0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifesUI: []
+  lifesUI:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   gameOver: {fileID: 0}
   pauseButton: {fileID: 0}
