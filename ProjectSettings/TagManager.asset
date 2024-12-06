@@ -3,22 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-<<<<<<< HEAD
-  - FireBall
-  - Bullet
-  - Wall
-  - Props
-=======
-  - Bullet
-  - Zone1
-  - Zone2
-  - TrapArea
-  - ThornDrone
-  - Experience
-  - Enemy
-  - Floor
->>>>>>> main
+  tags: []
   layers:
   - Default
   - TransparentFX
