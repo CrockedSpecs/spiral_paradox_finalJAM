@@ -13,7 +13,7 @@ public class PlayerBehaviour : MonoBehaviour
     [Header("shooting")]
     public Transform bulletSpawner;
     public float shootInterval = 0.2f;
-    private float shootTimer = 0.2f;
+    private float shootTimer = 0f;
     public int initAmmo = 6;
 
     [Header("Aiming")]
@@ -127,13 +127,13 @@ public class PlayerBehaviour : MonoBehaviour
     
     void Shoot()
     {
-            
+            initAmmo--;
             shootTimer = 0f; // Reinicia el temporizador
 
             GameObject bullet = bulletPool.Instance.requestBullet();
             bullet.transform.position = bulletSpawner.position;
             bullet.transform.rotation = bulletSpawner.rotation;
-            initAmmo--;
+            
 
     }
 

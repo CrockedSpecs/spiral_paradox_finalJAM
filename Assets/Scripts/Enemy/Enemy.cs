@@ -40,7 +40,7 @@ public class Enemy : MonoBehaviour
         if (other.CompareTag("Bullet"))
         {
             ChangeLife();
-            other.GetComponent<Bullet>().ChangeBulletPenetration();
+            //other.GetComponent<Bullet>().ChangeBulletPenetration();
             other.gameObject.SetActive(false);
         }
         if (other.CompareTag("ThornDrone"))
