@@ -141,5 +141,6 @@ public class PlayerBehaviour : MonoBehaviour
     {
         yield return new WaitForSeconds(1f); // Simula el tiempo de recarga
         initAmmo = 6; // Restaura la munición al valor inicial
+        shootTimer = 0f; // Reinicia el temporizador de disparo
     }
 }

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7098307454698440641}
   - component: {fileID: 878427685904209228}
   - component: {fileID: 8343664079282079537}
+  - component: {fileID: 941430269168849829}
   m_Layer: 0
   m_Name: Experience
   m_TagString: Experience
@@ -106,6 +107,19 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &941430269168849829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5970808281243098039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e3b1c614f8864d45b9098f7ce6edef7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minDistance: 3
 --- !u!1001 &8727571261868549464
 PrefabInstance:
   m_ObjectHideFlags: 0
