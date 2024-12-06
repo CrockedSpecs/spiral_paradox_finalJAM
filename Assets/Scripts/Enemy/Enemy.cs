@@ -95,7 +95,7 @@ public class Enemy : MonoBehaviour
         if (life <= 0)
         {
             // Instancia experiencia y destruye el enemigo si la vida llega a 0
-            Instantiate(experience, transform.position, experience.transform.rotation);
+            Instantiate(experience, new Vector3(transform.position.x, transform.position.y+1, transform.position.z), experience.transform.rotation);
             Destroy(gameObject);
         }
     }

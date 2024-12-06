@@ -14,7 +14,7 @@ public class SpawnLevelMap : MonoBehaviour
     [SerializeField] private List<GameObject> levelCityMaps;
     private NavMeshSurface navMeshSurface;
 
-    [SerializeField] private GameObject playerPrefab;
+    [SerializeField] private GameObject player;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -22,6 +22,7 @@ public class SpawnLevelMap : MonoBehaviour
         GameObject navMeshObject = GameObject.Find("NavMesh Surface");
         navMeshSurface = navMeshObject.GetComponent<NavMeshSurface>();
         StartCoroutine(levelInit());
+        player.SetActive(false);
     }
 
     // Update is called once per frame
@@ -70,7 +71,7 @@ public class SpawnLevelMap : MonoBehaviour
         // Search for a valid position within the NavMesh
         if (FindRandomPointOnNavMesh(startPosition, 10f, out Vector3 spawnPosition))
         {
-            Instantiate(playerPrefab, spawnPosition, Quaternion.identity);
+            Instantiate(player, spawnPosition, Quaternion.identity);
         }
         else
         {
@@ -100,6 +101,7 @@ public class SpawnLevelMap : MonoBehaviour
         yield return new WaitForSeconds(0.0001f);
         BakeNavMesh();
         yield return new WaitForSeconds(0.0001f);
+        player.SetActive(true);
         //SpawnPlayer();
     }
 }
