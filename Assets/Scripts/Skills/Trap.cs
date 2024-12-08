@@ -10,6 +10,10 @@ public class Trap : MonoBehaviour
     [SerializeField] private GameObject activationEffect; // Efecto al activar el área
     [SerializeField] private GameObject destructionEffect; // Efecto al destruir la trampa
 
+    [SerializeField] private int damage; // Efecto al destruir la trampa
+
+    [SerializeField] private PutTrap subjectToObserver;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +24,12 @@ public class Trap : MonoBehaviour
 
         // Inicia la secuencia de activación y destrucción
         StartCoroutine(TimeToDamage());
+
+        if (subjectToObserver != null)
+        {
+            subjectToObserver.trapDamage += IncreaseDamage;
+            subjectToObserver.trapRadius += IncreaseRadius;
+        }
     }
 
     IEnumerator TimeToDamage()
@@ -47,5 +57,15 @@ public class Trap : MonoBehaviour
 
         // Destruye la trampa
         Destroy(gameObject);
+    }
+
+    private void IncreaseDamage()
+    {
+        damage++;
+    }
+
+    private void IncreaseRadius()
+    {
+        area.GetComponent<SphereCollider>().radius ++;
     }
 }
