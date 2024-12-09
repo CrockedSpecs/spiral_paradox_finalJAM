@@ -100,29 +100,32 @@ public class PlayerBehaviour : MonoBehaviour
     }
 
     void Aiming()
+{
+    if (cam == null)
     {
-        if (cam == null)
-        {
-            cam = Camera.main;
-        }
+        cam = Camera.main;
+    }
 
-        Vector3 mousePos = Input.mousePosition;
-        Ray ray = cam.ScreenPointToRay(mousePos);
-        Plane groundPlane = new Plane(Vector3.up, Vector3.zero);
-        float distance;
-        if (groundPlane.Raycast(ray, out distance))
+    Vector3 mousePos = Input.mousePosition;
+    Ray ray = cam.ScreenPointToRay(mousePos);
+    Plane groundPlane = new Plane(Vector3.up, transform.position); // Ajuste para el plano basado en el jugador
+    float distance;
+    if (groundPlane.Raycast(ray, out distance))
+    {
+        Vector3 point = ray.GetPoint(distance);
+        Vector3 direction = point - bulletSpawner.position; // Ajuste basado en el spawner del arma
+        direction.y = 0; // Mantén la dirección horizontal
+
+        Quaternion targetRotation = Quaternion.LookRotation(direction);
+        rb.MoveRotation(Quaternion.Slerp(rb.rotation, targetRotation, Time.deltaTime * 25f));
+
+        if (weapon != null)
         {
-            Vector3 point = ray.GetPoint(distance);
-            Vector3 direction = point - transform.position;
-            direction.y = 0; // Keep aiming direction horizontal
-            Quaternion targetRotation = Quaternion.LookRotation(direction);
-            rb.MoveRotation(Quaternion.Slerp(rb.rotation, targetRotation, Time.deltaTime * 25f));
-            if (weapon != null)
-            {
-                weapon.transform.rotation = Quaternion.LookRotation(direction);
-            }
+            weapon.transform.rotation = Quaternion.LookRotation(direction);
         }
     }
+}
+
 
     
     void Shoot()
