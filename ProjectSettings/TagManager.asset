@@ -4,6 +4,10 @@
 TagManager:
   serializedVersion: 2
   tags:
+<<<<<<< HEAD
+=======
+  - Floor
+>>>>>>> main
   - Enemy
   - Experience
   - ThornDrone
@@ -11,7 +15,11 @@ TagManager:
   - Zone1
   - Bullet
   - TrapArea
+<<<<<<< HEAD
   - EnemySpawn
+=======
+  - SpawnExperience
+>>>>>>> main
   layers:
   - Default
   - TransparentFX

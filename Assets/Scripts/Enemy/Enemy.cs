@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -7,11 +8,12 @@ public class Enemy : MonoBehaviour
     private int life;
     private EnemyFollowPlayer enemyFollowPlayer;
 
-    [SerializeField] private GameObject experience;
     [SerializeField] private GameObject hitEffect; // Prefab del efecto visual
 
     private GameObject player;
     private NavMeshAgent agent;
+
+    private SpawnExperience spawnExperience;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -21,6 +23,8 @@ public class Enemy : MonoBehaviour
 
         player = GameObject.FindGameObjectWithTag("Player");
         agent = GetComponent<NavMeshAgent>();
+
+        spawnExperience = GameObject.FindGameObjectWithTag("SpawnExperience").GetComponent<SpawnExperience>();
     }
 
     // Update is called once per frame
@@ -79,10 +83,9 @@ public class Enemy : MonoBehaviour
         if (hitEffect != null)
         {
             // Instancia el efecto en la posición del enemigo
-            GameObject effect = Instantiate(hitEffect, transform.position, Quaternion.identity);
-
-            // Destruye el efecto después de un tiempo
-            Destroy(effect, 4f); 
+            hitEffect.transform.position = transform.position; 
+            hitEffect.SetActive(true);
+            HitEffectTurnOff();
         }
     }
 
@@ -95,8 +98,16 @@ public class Enemy : MonoBehaviour
         if (life <= 0)
         {
             // Instancia experiencia y destruye el enemigo si la vida llega a 0
-            Instantiate(experience, new Vector3(transform.position.x, transform.position.y+1, transform.position.z), experience.transform.rotation);
+            spawnExperience.ActivateExperience(transform.position, transform.rotation);
+
             gameObject.SetActive(false);
         }
+    }
+
+    IEnumerator HitEffectTurnOff()
+    {
+        yield return new WaitForSeconds(4);
+        // Apaga el efecto después de un tiempo
+        hitEffect.SetActive(false);
     }
 }
