@@ -31,6 +31,50 @@ Transform:
   m_Children: []
   m_Father: {fileID: 8613750091921503840}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1241040213512273593
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2649968455874744423}
+  - component: {fileID: 7492901416644502035}
+  m_Layer: 0
+  m_Name: EnemyPool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2649968455874744423
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1241040213512273593}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8613750091921503840}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7492901416644502035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1241040213512273593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c5defec1db8b124b9732ee326f10ce1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3541296833348505968
 GameObject:
   m_ObjectHideFlags: 0
@@ -191,6 +235,7 @@ Transform:
   - {fileID: 8929808795913419788}
   - {fileID: 6306501688673031359}
   - {fileID: 776073512984483631}
+  - {fileID: 2649968455874744423}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1822840362978303865
@@ -217,8 +262,7 @@ MonoBehaviour:
   - {fileID: 5844213033752540872, guid: 64216a52fe572844caacd95e29af1317, type: 3}
   levelVikingMaps: []
   levelCityMaps: []
-  playerPrefab: {fileID: 1395889800201091382, guid: 05f78becd2454d84a907ac413e42a0c9,
-    type: 3}
+  player: {fileID: 0}
 --- !u!1 &8680622043110157262
 GameObject:
   m_ObjectHideFlags: 0

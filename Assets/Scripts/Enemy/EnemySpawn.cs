@@ -3,22 +3,29 @@ using UnityEngine;
 public class EnemySpawn : MonoBehaviour
 {
     //Declarations
-    [SerializeField] private GameObject enemy;
+    [SerializeField] private int SpawnerLife = 10;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        InvokeRepeating("SpawnEnemy", 10, 5);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (SpawnerLife <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 
-    private void SpawnEnemy()
+
+
+    private void OnTriggerEnter(Collider other)
     {
-        Instantiate(enemy, transform.position, enemy.transform.rotation);
+        if (other.tag == ("Bullet"))
+        {
+            SpawnerLife--;
+        }
     }
 }

@@ -33,7 +33,8 @@ public class bulletBehaviour : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == ("Wall") ||  other.tag == ("Enemy"))
+
+        if (other.tag == ("Wall") ||  other.tag == ("Enemy") || other.tag == ("EnemySpawn"))
         {
             gameObject.SetActive(false);
         }
