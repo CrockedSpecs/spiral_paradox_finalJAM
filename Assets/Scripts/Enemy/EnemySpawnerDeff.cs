@@ -35,6 +35,11 @@ public class EnemySpawner : MonoBehaviour
         StartCoroutine(CheckAllPortalsDestroyed());
     }
 
+    private void Awake()
+    {
+        
+    }
+
     void FindClosestPortals()
     {
         GameObject[] allSpawns = GameObject.FindGameObjectsWithTag("EnemySpawn");
@@ -125,7 +130,10 @@ public class EnemySpawner : MonoBehaviour
     {
         while (!isLevelFinished)
         {
-            if (topLeftPortal == null && topRightPortal == null && bottomLeftPortal == null && bottomRightPortal == null)
+            if ((topLeftPortal == null || !topLeftPortal.activeInHierarchy) &&
+                (topRightPortal == null || !topRightPortal.activeInHierarchy) &&
+                (bottomLeftPortal == null || !bottomLeftPortal.activeInHierarchy) &&
+                (bottomRightPortal == null || !bottomRightPortal.activeInHierarchy))
             {
                 isLevelFinished = true;
                 FinishLevel();
@@ -134,6 +142,7 @@ public class EnemySpawner : MonoBehaviour
             yield return new WaitForSeconds(1f); // Revisa cada segundo
         }
     }
+
 
     void SpawnEnemy()
     {
@@ -159,7 +168,6 @@ public class EnemySpawner : MonoBehaviour
                 GameObject enemy = EnemyPool.Instance.requestEnemy();
                 enemy.transform.position = hit.position; // Posición validada
                 enemy.transform.rotation = Quaternion.identity; // Ajustar rotación si es necesario
-                Debug.Log($"Enemigo instanciado en {randomSpawner.name} ({hit.position})");
                 return; // Salir al instanciar exitosamente
             }
 
