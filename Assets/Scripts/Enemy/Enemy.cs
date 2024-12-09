@@ -99,6 +99,7 @@ public class Enemy : MonoBehaviour
         {
             // Instancia experiencia y destruye el enemigo si la vida llega a 0
             spawnExperience.ActivateExperience(transform.position, transform.rotation);
+
             gameObject.SetActive(false);
         }
     }

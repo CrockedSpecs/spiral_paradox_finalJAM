@@ -63,37 +63,6 @@ public class SpawnLevelMap : MonoBehaviour
         navMeshSurface.BuildNavMesh();
     }
 
-    private void SpawnPlayer()
-    {
-        // Define a starting position
-        Vector3 startPosition = Vector3.zero; // Adjust as needed
-
-        // Search for a valid position within the NavMesh
-        if (FindRandomPointOnNavMesh(startPosition, 10f, out Vector3 spawnPosition))
-        {
-            Instantiate(player, spawnPosition, Quaternion.identity);
-        }
-        else
-        {
-            Debug.LogError("Failed to find a valid spawn point for the player.");
-        }
-    }
-
-    private bool FindRandomPointOnNavMesh(Vector3 center, float range, out Vector3 result)
-    {
-        // Generate a random point within a sphere
-        Vector3 randomPoint = center + Random.insideUnitSphere * range;
-
-        // Check if it's on the NavMesh
-        if (NavMesh.SamplePosition(randomPoint, out NavMeshHit hit, range, NavMesh.AllAreas))
-        {
-            result = hit.position;
-            return true;
-        }
-
-        result = Vector3.zero;
-        return false;
-    }
 
     private IEnumerator levelInit()
     {
@@ -102,6 +71,5 @@ public class SpawnLevelMap : MonoBehaviour
         BakeNavMesh();
         yield return new WaitForSeconds(0.0001f);
         player.SetActive(true);
-        //SpawnPlayer();
     }
 }

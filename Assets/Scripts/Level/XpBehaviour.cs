@@ -10,12 +10,16 @@ public class XpBehaviour : MonoBehaviour
     private bool isPlayerNear = false;
     private float minDistance = 2f;
 
-    
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        
+    }
+
+    // Called when the GameObject is enabled
+    void OnEnable()
+    {
+        isPlayerNear = false; // Reset the proximity flag when enabled
     }
 
     // Update is called once per frame
@@ -34,6 +38,10 @@ public class XpBehaviour : MonoBehaviour
         if (distance <= minDistance)
         {
             isPlayerNear = true;
+        }
+        else
+        {
+            isPlayerNear = false; // Optionally, reset it if the player moves away
         }
     }
 
