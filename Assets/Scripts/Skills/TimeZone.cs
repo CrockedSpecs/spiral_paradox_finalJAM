@@ -9,10 +9,18 @@ public class TimeZone : MonoBehaviour
     [SerializeField] private float radius;
     public float speedDecrease;
 
+    [SerializeField] private AlteredTimeZone subjectToObserver;
+
     // Start is called before the first frame update
     void Start()
     {
         speedDecrease = 2;
+
+        if(subjectToObserver != null)
+        {
+            subjectToObserver.radius += IncreaseRadius;
+            subjectToObserver.speedDecrease += IncreaseSpeedDecrease;
+        }
     }
 
     void FixedUpdate()
@@ -39,5 +47,15 @@ public class TimeZone : MonoBehaviour
             radius = 0;
             transform.localScale = new Vector3(radius, radius, radius);
         }
+    }
+
+    private void IncreaseRadius()
+    {
+        radius += 2;
+    }
+
+    private void IncreaseSpeedDecrease()
+    {
+        speedDecrease ++;
     }
 }

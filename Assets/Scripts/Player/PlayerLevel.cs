@@ -25,7 +25,7 @@ public class PlayerLevel : MonoBehaviour
     {
         if (other.CompareTag("Experience"))
         {
-            Destroy(other.gameObject);
+            other.gameObject.SetActive(false);
 
             experience++;
             if (experience >= experienceToNextLevel)

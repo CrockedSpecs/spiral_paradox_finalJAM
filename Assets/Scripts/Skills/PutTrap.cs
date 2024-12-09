@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,9 +11,9 @@ public class PutTrap : MonoBehaviour
     public GameObject Trap;
 
     //ForTraps
-    private int trapDamage;
+    public event Action trapDamage;
     private int putVelocity;
-    private int trapRadius;
+    public event Action trapRadius;
 
     // Start is called before the first frame update
     void Start()
@@ -45,19 +46,19 @@ public class PutTrap : MonoBehaviour
 
                 break;
             case 1:
-                trapDamage = 1;
+                trapDamage?.Invoke();
                 break;
             case 2:
-                trapDamage = 2;
+                trapDamage?.Invoke();
                 break;
             case 3:
-                trapRadius = 3;
+                trapRadius?.Invoke();
                 break;
             case 4:
                 putVelocity = 5;
                 break;
             case 5:
-                trapRadius = 6;
+                trapRadius?.Invoke();
                 break;
         }
     }
