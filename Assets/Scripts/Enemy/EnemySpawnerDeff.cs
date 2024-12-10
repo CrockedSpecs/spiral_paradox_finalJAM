@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 public class EnemySpawner : MonoBehaviour
 {
@@ -244,7 +245,20 @@ public class EnemySpawner : MonoBehaviour
 
     void FinishLevel()
     {
+        
         Debug.Log("¡Todos los portales han sido destruidos! Nivel terminado.");
         // Aquí puedes implementar cualquier lógica adicional para el fin del nivel
+        if (SceneManager.GetActiveScene().name == "Level1")
+        {
+            SceneManager.LoadScene(2);
+        }
+        else if (SceneManager.GetActiveScene().name == "Level12")
+        {
+            SceneManager.LoadScene(3);
+        }
+        else if (SceneManager.GetActiveScene().name == "Level13")
+        {
+            SceneManager.LoadScene(4);
+        }
     }
 }

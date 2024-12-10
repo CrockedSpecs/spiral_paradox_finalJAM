@@ -294,6 +294,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1586271526128309157, guid: 6338d20dd3c1ffb488a7bef4e3337f7e,
+        type: 3}
+      propertyPath: cursorText
+      value: 
+      objectReference: {fileID: 1152185285}
     - target: {fileID: 4654055572969131144, guid: 6338d20dd3c1ffb488a7bef4e3337f7e,
         type: 3}
       propertyPath: levelUpScript
@@ -1202,7 +1207,7 @@ PrefabInstance:
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 3086171228135132195, guid: b2aaa0dd1adf6f947869f2871ce17bd4,
         type: 3}
-      insertIndex: -1
+      insertIndex: 0
       addedObject: {fileID: 1152185283}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b2aaa0dd1adf6f947869f2871ce17bd4, type: 3}

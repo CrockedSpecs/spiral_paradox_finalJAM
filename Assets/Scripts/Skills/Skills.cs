@@ -32,10 +32,10 @@ public class Skills : MonoBehaviour
             }
             else
             {
-                Instance = this;
-                DontDestroyOnLoad(gameObject);
+                Instance = this;                
             }
         }
+        DontDestroyOnLoad(gameObject);
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
