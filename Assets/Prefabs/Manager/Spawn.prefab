@@ -75,6 +75,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c5defec1db8b124b9732ee326f10ce1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  knightPrefab: {fileID: 0}
+  vikingPrefab: {fileID: 0}
+  policePrefab: {fileID: 0}
+  EnemyList: []
+  enemyChoice: 0
 --- !u!1 &3541296833348505968
 GameObject:
   m_ObjectHideFlags: 0
@@ -260,8 +265,16 @@ MonoBehaviour:
   - {fileID: 1607898746094828901, guid: fa6293f0bfd6cfc4abdc50e644995047, type: 3}
   - {fileID: 541968895691760632, guid: 8027ef85772d538459a6c319369a06a1, type: 3}
   - {fileID: 5844213033752540872, guid: 64216a52fe572844caacd95e29af1317, type: 3}
-  levelVikingMaps: []
-  levelCityMaps: []
+  levelVikingMaps:
+  - {fileID: 6066913795211024605, guid: 3cb640dcaf53eee43a0aad4b761257e7, type: 3}
+  - {fileID: 3449841420803605418, guid: 408b46cbab8bc8c4f81da451c8009ca6, type: 3}
+  - {fileID: 8208755427530079542, guid: 626a3bcb0f04d6e43934377526ea176e, type: 3}
+  - {fileID: 3474639419558512226, guid: 3e0cfdfe33954064fadc360419345d40, type: 3}
+  levelCityMaps:
+  - {fileID: 3146568471071523074, guid: 5f0b98b94422d5b488eba4d817317d17, type: 3}
+  - {fileID: 7659025911426658306, guid: c0e2a265e6b256548890ed38a02ee69f, type: 3}
+  - {fileID: 1020882832467320740, guid: d5fd6d84071b0c04286d61ec1f5006fd, type: 3}
+  - {fileID: 4181647591700893555, guid: 7c4f28ed0421fcb41a218fdbee5e2d03, type: 3}
   player: {fileID: 0}
 --- !u!1 &8680622043110157262
 GameObject:

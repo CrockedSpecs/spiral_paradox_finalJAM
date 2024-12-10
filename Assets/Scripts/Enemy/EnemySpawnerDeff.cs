@@ -252,11 +252,11 @@ public class EnemySpawner : MonoBehaviour
         {
             SceneManager.LoadScene(2);
         }
-        else if (SceneManager.GetActiveScene().name == "Level12")
+        else if (SceneManager.GetActiveScene().name == "Level2")
         {
             SceneManager.LoadScene(3);
         }
-        else if (SceneManager.GetActiveScene().name == "Level13")
+        else if (SceneManager.GetActiveScene().name == "Level3")
         {
             SceneManager.LoadScene(4);
         }

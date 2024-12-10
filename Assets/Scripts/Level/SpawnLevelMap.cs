@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using Unity.AI.Navigation;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 public class SpawnLevelMap : MonoBehaviour
 {
     //Declarations
-    private int biomas;
+    private string biomas;
     [SerializeField] private List<GameObject> spawns;
     [SerializeField] private List<GameObject> levelKingdomMaps;
     [SerializeField] private List<GameObject> levelVikingMaps;
@@ -35,6 +36,8 @@ public class SpawnLevelMap : MonoBehaviour
     {
         int levelMapsIndex = 0;
 
+        biomas = SceneManager.GetActiveScene().name;
+
         for (int index = 0; index < spawns.Count; index++)
         {
             switch (biomas)
@@ -42,15 +45,15 @@ public class SpawnLevelMap : MonoBehaviour
                 default:
 
                     break;
-                case 0:
+                case "Level1":
                     levelMapsIndex = Random.Range(0, levelKingdomMaps.Count);
                     Instantiate(levelKingdomMaps[levelMapsIndex], spawns[index].transform.position, spawns[index].transform.rotation);
                     break;
-                case 1:
+                case "Level2":
                     levelMapsIndex = Random.Range(0, levelVikingMaps.Count);
                     Instantiate(levelVikingMaps[levelMapsIndex], spawns[index].transform.position, spawns[index].transform.rotation);
                     break;
-                case 2:
+                case "Level3":
                     levelMapsIndex = Random.Range(0, levelCityMaps.Count);
                     Instantiate(levelCityMaps[levelMapsIndex], spawns[index].transform.position, spawns[index].transform.rotation);
                     break;

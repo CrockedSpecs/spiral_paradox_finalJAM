@@ -14,34 +14,33 @@ public class Skills : MonoBehaviour
     private string[] skill3Description = { "Shot", "Increase the penetration +1", "Increase the damage +1", "Increase the penetration +1", "Increase the damage +1 and penetration +1", };
     private string[] skill4Description = { "Place a trap at regular periods", "Increase the damage +1", "Increase the radius", "Increases the speed of placing the trap", "Increase the radius", };
 
-    //Singleton
-    public static Skills Instance;
-
-    private void Awake()
-    {
-        if (Instance != null)
-        {
-            Destroy(gameObject);
-            return;
-        }
-        else
-        {
-            if (SceneManager.GetActiveScene().name == "MainMenu")
-            {
-                Destroy(gameObject);
-            }
-            else
-            {
-                Instance = this;                
-            }
-        }
-        DontDestroyOnLoad(gameObject);
-    }
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        if (SceneManager.GetActiveScene().name == "Level2" || SceneManager.GetActiveScene().name == "Level3")
+        {
+            for (int i = 0; i < skillsLevels.Count; i++)
+            {
+                skillsLevels[i] = GameManager.Instance.skillsLevels[i];
+
+                for (int j = 0; j < skillsLevels[i]; j++)
+                {
+                    skills[i].SetActive(false);
+                    skills[i].SetActive(true);
+                }
+            }
+        }
+
+        else
+        {
+            if (SceneManager.GetActiveScene().name == "Level2" || SceneManager.GetActiveScene().name == "Level3")
+            {
+                for (int i = 0; i < skillsLevels.Count; i++)
+                {
+                    skillsLevels[i] = 0;
+                }
+            }
+        }
     }
 
     // Update is called once per frame
@@ -62,6 +61,7 @@ public class Skills : MonoBehaviour
         int indexSkills = i;
 
         skillsLevels[i]++;
+        GameManager.Instance.SaveSkillLevel(i, skillsLevels[i]);
 
         skills[indexSkills].SetActive(false);
         skills[indexSkills].SetActive(true);

@@ -879,6 +879,7 @@ MonoBehaviour:
   - {fileID: 170632601691035797, guid: c7dc1a20587893a40bb87cb911d038dc, type: 3}
   - {fileID: 6906422307919032560, guid: 91532625cc724ea4bb132ce8a51a3440, type: 3}
   - {fileID: 4066798717543698602, guid: 55bd389e3a40a8c41bc1ff93467b57ec, type: 3}
+  pooledPeople: []
 --- !u!1 &1290127266
 GameObject:
   m_ObjectHideFlags: 0
@@ -1127,6 +1128,16 @@ PrefabInstance:
     - target: {fileID: 7471696495117730093, guid: a92caf7dce88e5649906cbec8b1c47f4,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8694399159931175156, guid: a92caf7dce88e5649906cbec8b1c47f4,
+        type: 3}
+      propertyPath: skillsLevels.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8694399159931175156, guid: a92caf7dce88e5649906cbec8b1c47f4,
+        type: 3}
+      propertyPath: skillsLevels.Array.data[2]
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
