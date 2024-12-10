@@ -30,18 +30,27 @@ public class PlayerBehaviour : MonoBehaviour
 
     // Update is called once per frame
     void Update()
+
     {
-        PlayerMovement();
+        _moveSpeed = 5f;
+
         Aiming();
         shootTimer += Time.deltaTime;
-        if (Input.GetMouseButton(0) && shootTimer >= shootInterval && initAmmo > 0)
+        if (Input.GetMouseButton(0))
         {
-            Shoot();
+            _moveSpeed = 2.5f;
+            if (shootTimer >= shootInterval && initAmmo > 0)
+            {
+                Shoot();
+            }
+            else if (initAmmo == 0 || Input.GetKeyDown(KeyCode.R))
+            {
+                StartCoroutine(ReloadWeapon());
+            }
         }
-        else if (initAmmo == 0 || Input.GetKeyDown(KeyCode.R))
-        {
-            StartCoroutine(ReloadWeapon());
-        }
+
+
+        PlayerMovement();
 
     }
 
