@@ -3,7 +3,18 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Enemy
+  - SpawnExperience
+  - Experience
+  - EnemySpawn
+  - ThornDrone
+  - Zone2
+  - Zone1
+  - Bullet
+  - TrapArea
+  - Floor
+  - Wall
   layers:
   - Default
   - TransparentFX

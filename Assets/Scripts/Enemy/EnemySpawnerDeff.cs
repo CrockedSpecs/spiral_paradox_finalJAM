@@ -37,7 +37,7 @@ public class EnemySpawner : MonoBehaviour
 
     private void Awake()
     {
-        
+        FindClosestPortals(); // Buscar los portales más cercanos al iniciar
     }
 
     void FindClosestPortals()
@@ -130,6 +130,7 @@ public class EnemySpawner : MonoBehaviour
     {
         while (!isLevelFinished)
         {
+            yield return new WaitForSeconds(1f); // Revisa cada segundo
             if ((topLeftPortal == null || !topLeftPortal.activeInHierarchy) &&
                 (topRightPortal == null || !topRightPortal.activeInHierarchy) &&
                 (bottomLeftPortal == null || !bottomLeftPortal.activeInHierarchy) &&
@@ -138,12 +139,19 @@ public class EnemySpawner : MonoBehaviour
                 isLevelFinished = true;
                 FinishLevel();
             }
-
-            yield return new WaitForSeconds(1f); // Revisa cada segundo
         }
     }
 
-
+    void ShuffleList(List<int> list)
+    {
+        for (int i = 0; i < list.Count; i++)
+        {
+            int randomIndex = Random.Range(0, list.Count);
+            int temp = list[i];
+            list[i] = list[randomIndex];
+            list[randomIndex] = temp;
+        }
+    }
     void SpawnEnemy()
     {
         List<GameObject> selectedSpawnerList = GetRandomSpawnerList();
@@ -153,29 +161,68 @@ public class EnemySpawner : MonoBehaviour
             return;
         }
 
-        int attempts = 0;
-        const int maxAttempts = 10; // Evitar bucles infinitos en caso de problemas
-
-        while (attempts < maxAttempts)
+        // Lista de índices para iterar por todos los spawners
+        List<int> spawnerIndices = new List<int>();
+        for (int i = 0; i < selectedSpawnerList.Count; i++)
         {
-            GameObject randomSpawner = selectedSpawnerList[Random.Range(0, selectedSpawnerList.Count)];
-
-            // Usar la posición actual del spawner y validar si está navegable
-            Vector3 currentPosition = randomSpawner.transform.position;
-            if (NavMesh.SamplePosition(currentPosition, out NavMeshHit hit, 0.1f, NavMesh.AllAreas))
-            {
-                // Instanciar enemigo en la posición válida del NavMesh
-                GameObject enemy = EnemyPool.Instance.requestEnemy();
-                enemy.transform.position = hit.position; // Posición validada
-                enemy.transform.rotation = Quaternion.identity; // Ajustar rotación si es necesario
-                return; // Salir al instanciar exitosamente
-            }
-
-            attempts++;
+            spawnerIndices.Add(i);
         }
 
-        Debug.LogWarning("No se encontró una posición válida para instanciar un enemigo después de múltiples intentos.");
+        // Mezclar los índices para seleccionar spawners aleatoriamente
+        ShuffleList(spawnerIndices);
+
+        foreach (int index in spawnerIndices)
+        {
+            GameObject spawner = selectedSpawnerList[index];
+
+            if (spawner == null || !spawner.activeInHierarchy)
+            {
+                continue; // Ignorar spawners desactivados o nulos
+            }
+
+            // Obtener la posición actual del spawner
+            Vector3 currentPosition = spawner.transform.position;
+
+            // Validar si la posición es navegable
+            if (NavMesh.SamplePosition(currentPosition, out NavMeshHit hit, 0.5f, NavMesh.AllAreas))
+            {
+                // Instanciar el enemigo en una posición válida
+                GameObject enemy = EnemyPool.Instance.requestEnemy();
+                enemy.transform.position = hit.position;
+                enemy.transform.rotation = Quaternion.identity;
+                Debug.Log($"Enemigo instanciado en posición válida cerca de {spawner.name}");
+                return;
+            }
+        }
+
+        // Si no se encuentra una posición válida, buscar fuera de la lista seleccionada
+        Debug.LogWarning("No se encontró una posición válida en la lista seleccionada. Buscando otra posición válida...");
+
+        GameObject[] allSpawners = GameObject.FindGameObjectsWithTag("EnemySpawn");
+        foreach (GameObject spawner in allSpawners)
+        {
+            if (spawner == null || !spawner.activeInHierarchy)
+            {
+                continue;
+            }
+
+            Vector3 currentPosition = spawner.transform.position;
+
+            if (NavMesh.SamplePosition(currentPosition, out NavMeshHit hit, 0.5f, NavMesh.AllAreas))
+            {
+                GameObject enemy = EnemyPool.Instance.requestEnemy();
+                enemy.transform.position = hit.position;
+                enemy.transform.rotation = Quaternion.identity;
+                Debug.Log($"Enemigo instanciado fuera de la lista inicial, en posición válida cerca de {spawner.name}");
+                return;
+            }
+        }
+
+        Debug.LogWarning("No se encontró ninguna posición válida dentro o fuera de la lista seleccionada.");
     }
+
+
+
 
 
 
