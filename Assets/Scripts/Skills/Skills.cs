@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Skills : MonoBehaviour
 {
@@ -13,10 +14,34 @@ public class Skills : MonoBehaviour
     private string[] skill3Description = { "Shot", "Increase the penetration +1", "Increase the damage +1", "Increase the penetration +1", "Increase the damage +1 and penetration +1", };
     private string[] skill4Description = { "Place a trap at regular periods", "Increase the damage +1", "Increase the radius", "Increases the speed of placing the trap", "Increase the radius", };
 
+    //Singleton
+    public static Skills Instance;
+
+    private void Awake()
+    {
+        if (Instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        else
+        {
+            if (SceneManager.GetActiveScene().name == "MainMenu")
+            {
+                Destroy(gameObject);
+            }
+            else
+            {
+                Instance = this;
+                DontDestroyOnLoad(gameObject);
+            }
+        }
+    }
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame
