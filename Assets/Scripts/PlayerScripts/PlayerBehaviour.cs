@@ -1,4 +1,5 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
 
 public class PlayerBehaviour : MonoBehaviour
@@ -22,6 +23,9 @@ public class PlayerBehaviour : MonoBehaviour
     public GameObject weapon;
     [SerializeField] private Camera cam;
     [SerializeField] private Rigidbody rb;
+
+    public TextMeshProUGUI cursorText; // Referencia al texto del cursor
+    public Vector2 offset = new Vector2(10, 10); // Desplazamiento del texto respecto al mouse
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -30,18 +34,29 @@ public class PlayerBehaviour : MonoBehaviour
 
     // Update is called once per frame
     void Update()
+
     {
-        PlayerMovement();
+        _moveSpeed = 5f;
+
         Aiming();
         shootTimer += Time.deltaTime;
-        if (Input.GetMouseButton(0) && shootTimer >= shootInterval && initAmmo > 0)
+        if (Input.GetMouseButton(0))
         {
-            Shoot();
+            _moveSpeed = 2.5f;
+            cursorText.text = $"{initAmmo}";
+            if (shootTimer >= shootInterval && initAmmo > 0)
+            {
+                
+                Shoot();
+            }
+            else if (initAmmo == 0 || Input.GetKeyDown(KeyCode.R))
+            {
+                StartCoroutine(ReloadWeapon());
+            }
         }
-        else if (initAmmo == 0 || Input.GetKeyDown(KeyCode.R))
-        {
-            StartCoroutine(ReloadWeapon());
-        }
+
+
+        PlayerMovement();
 
     }
 
@@ -100,29 +115,32 @@ public class PlayerBehaviour : MonoBehaviour
     }
 
     void Aiming()
+{
+    if (cam == null)
     {
-        if (cam == null)
-        {
-            cam = Camera.main;
-        }
+        cam = Camera.main;
+    }
 
-        Vector3 mousePos = Input.mousePosition;
-        Ray ray = cam.ScreenPointToRay(mousePos);
-        Plane groundPlane = new Plane(Vector3.up, Vector3.zero);
-        float distance;
-        if (groundPlane.Raycast(ray, out distance))
+    Vector3 mousePos = Input.mousePosition;
+    Ray ray = cam.ScreenPointToRay(mousePos);
+    Plane groundPlane = new Plane(Vector3.up, transform.position); // Ajuste para el plano basado en el jugador
+    float distance;
+    if (groundPlane.Raycast(ray, out distance))
+    {
+        Vector3 point = ray.GetPoint(distance);
+        Vector3 direction = point - bulletSpawner.position; // Ajuste basado en el spawner del arma
+        direction.y = 0; // Mantén la dirección horizontal
+
+        Quaternion targetRotation = Quaternion.LookRotation(direction);
+        rb.MoveRotation(Quaternion.Slerp(rb.rotation, targetRotation, Time.deltaTime * 25f));
+
+        if (weapon != null)
         {
-            Vector3 point = ray.GetPoint(distance);
-            Vector3 direction = point - transform.position;
-            direction.y = 0; // Keep aiming direction horizontal
-            Quaternion targetRotation = Quaternion.LookRotation(direction);
-            rb.MoveRotation(Quaternion.Slerp(rb.rotation, targetRotation, Time.deltaTime * 25f));
-            if (weapon != null)
-            {
-                weapon.transform.rotation = Quaternion.LookRotation(direction);
-            }
+            weapon.transform.rotation = Quaternion.LookRotation(direction);
         }
     }
+}
+
 
     
     void Shoot()
@@ -139,8 +157,10 @@ public class PlayerBehaviour : MonoBehaviour
 
     IEnumerator ReloadWeapon()
     {
+        cursorText.text = "R";
         yield return new WaitForSeconds(1f); // Simula el tiempo de recarga
         initAmmo = 6; // Restaura la munición al valor inicial
+        cursorText.text = $"{initAmmo}";
         shootTimer = 0f; // Reinicia el temporizador de disparo
     }
 }

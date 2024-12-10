@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,7 +10,7 @@ public class ThornDroneWall : MonoBehaviour
     private float rotationSpeed;
 
     //ForDrones
-    private int droneDamage;
+    public event Action droneDamage;
 
     [SerializeField] private GameObject drone;
     [SerializeField] private List<GameObject> drones;
@@ -18,7 +19,6 @@ public class ThornDroneWall : MonoBehaviour
     void Start()
     {
         rotationSpeed = 50;
-        droneDamage = 1;
     }
 
     void FixedUpdate()
@@ -48,7 +48,7 @@ public class ThornDroneWall : MonoBehaviour
                 drones[1].SetActive(true);
                 break;
             case 2:
-                droneDamage = 2;
+                droneDamage?.Invoke();
                 break;
             case 3:
                 drones[2].SetActive(true);

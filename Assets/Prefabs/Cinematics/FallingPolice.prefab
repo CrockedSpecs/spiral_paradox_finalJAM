@@ -1001,6 +1001,7 @@ GameObject:
   - component: {fileID: 2001356658827400198}
   - component: {fileID: 1573423969757905401}
   - component: {fileID: 445238805565456855}
+  - component: {fileID: -3239572886586467873}
   m_Layer: 0
   m_Name: FallingPolice
   m_TagString: Untagged
@@ -1038,7 +1039,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 84f1cc8e7ee14f24ab1da1da31dd8924, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
@@ -1073,6 +1074,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &-3239572886586467873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6906422307919032560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0efff6343619ee546a936212aa683a70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7188187117052365277
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class ShootBullet : MonoBehaviour
@@ -8,15 +9,14 @@ public class ShootBullet : MonoBehaviour
     public GameObject Bullet;
 
     //ForBullets
-    private int bulletDamage;
-    private int bulletPenetration;
+    public event Action bulletDamage;
+    public event Action bulletPenetration;
 
     public Transform playerFollow;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        bulletDamage = 1;
         playerFollow = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
@@ -53,20 +53,19 @@ public class ShootBullet : MonoBehaviour
 
                 break;
             case 1:
-                bulletDamage = 1;
+                bulletPenetration?.Invoke();
                 break;
             case 2:
-                bulletPenetration = 1;
+                bulletDamage?.Invoke();
                 break;
             case 3:
-                bulletDamage = 2;
+                bulletPenetration?.Invoke();
                 break;
             case 4:
-                bulletPenetration = 2;
+                bulletDamage?.Invoke();
                 break;
             case 5:
-                bulletDamage = 3;
-                bulletPenetration = 3;
+                bulletPenetration?.Invoke();
                 break;
         }
     }
