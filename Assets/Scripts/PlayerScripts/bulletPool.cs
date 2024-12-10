@@ -4,13 +4,17 @@ using UnityEngine;
 
 public class bulletPool : MonoBehaviour
 {
+    [Header("Bullet Pool Settings")]
     public GameObject bulletPrefab;
     private int poolSize = 60;
     public List<GameObject> bulletList;
 
+    [Header("Audio Settings")]
+    [SerializeField] AudioClip shootingClip; // Sonido de disparo
+    
+
     private static bulletPool instance;
     public static bulletPool Instance { get { return instance; } }
-    // Start is called before the first frame update
 
     private void Awake()
     {
@@ -23,6 +27,7 @@ public class bulletPool : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
     void Start()
     {
         AddBulletToPool(poolSize);
@@ -45,14 +50,27 @@ public class bulletPool : MonoBehaviour
         {
             if (!bulletList[i].activeSelf)
             {
+                // Reproducir el sonido de disparo
+                AudioManager.instance.PlaySFX(shootingClip);
+
                 bulletList[i].SetActive(true);
                 return bulletList[i];
             }
-
         }
+
+
+        // Agregar una nueva bala al pool pero mantenerla desactivada
         AddBulletToPool(1);
         bulletList[bulletList.Count - 1].SetActive(false);
         return bulletList[bulletList.Count - 1];
     }
 
+    private void PlaySound(AudioClip clip)
+    {
+        if (AudioManager.instance != null && clip != null)
+        {
+            AudioManager.instance.PlaySFX(clip);
+        }
+        
+    }
 }

@@ -26,6 +26,9 @@ public class PlayerBehaviour : MonoBehaviour
 
     public TextMeshProUGUI cursorText; // Referencia al texto del cursor
     public Vector2 offset = new Vector2(10, 10); // Desplazamiento del texto respecto al mouse
+
+    [SerializeField] AudioClip emptyClip; // Sonido cuando no hay balas
+
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -157,6 +160,8 @@ public class PlayerBehaviour : MonoBehaviour
 
     IEnumerator ReloadWeapon()
     {
+        // Si no hay balas disponibles, reproducir el sonido de "sin balas"
+        AudioManager.instance.PlaySFX(emptyClip);
         cursorText.text = "R";
         yield return new WaitForSeconds(1f); // Simula el tiempo de recarga
         initAmmo = 6; // Restaura la munición al valor inicial
