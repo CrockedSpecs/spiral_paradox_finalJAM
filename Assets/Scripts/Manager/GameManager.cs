@@ -7,6 +7,8 @@ public class GameManager : MonoBehaviour
 {
     //Declarations
     private bool isPaused;
+
+    //Singleton
     public static GameManager Instance;
 
     private void Awake()
