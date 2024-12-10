@@ -39,19 +39,19 @@ public class cursorTxtFollow : MonoBehaviour
         cursorText.rectTransform.position = mousePosition + offset;
 
         // Actualiza el texto del cursor con el valor de initAmmo
-        if (playerBehaviour != null)
-        {
-            if (playerBehaviour.initAmmo == 0)
-            {
-                cursorText.text = "R";
-            }
-            else 
-            {
-                cursorText.text = $"{playerBehaviour.initAmmo}";
-            }
+        //if (playerBehaviour != null)
+        //{
+        //    if (playerBehaviour.initAmmo == 0 || Input.GetKeyDown(KeyCode.R))
+        //    {
+        //        cursorText.text = "R";
+        //    }
+        //    else 
+        //    {
+        //        cursorText.text = $"{playerBehaviour.initAmmo}";
+        //    }
 
 
-        }
+        //}
     }
 
 }
