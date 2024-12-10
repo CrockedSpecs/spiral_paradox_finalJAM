@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
     //Singleton
     public static GameManager Instance;
 
+    [SerializeField] public List<int> skillsLevels;
+
     private void Awake()
     {
         if (Instance != null)
@@ -49,6 +51,10 @@ public class GameManager : MonoBehaviour
         isPaused = !isPaused;
     }
 
+    public void SaveSkillLevel(int i, int level)
+    {
+        skillsLevels[i] = level;
+    }
 
     public void ChangeScen(string sceneName)
     {
