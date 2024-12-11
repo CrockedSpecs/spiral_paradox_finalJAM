@@ -161,7 +161,7 @@ public class PlayerBehaviour : MonoBehaviour
     IEnumerator ReloadWeapon()
     {
         // Si no hay balas disponibles, reproducir el sonido de "sin balas"
-        AudioManager.instance.PlaySFX(emptyClip);
+        //AudioManager.instance.PlaySFX(emptyClip);
         cursorText.text = "R";
         yield return new WaitForSeconds(1f); // Simula el tiempo de recarga
         initAmmo = 6; // Restaura la munición al valor inicial
