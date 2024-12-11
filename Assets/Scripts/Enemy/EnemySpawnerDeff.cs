@@ -22,17 +22,21 @@ public class EnemySpawner : MonoBehaviour
     public GameObject enemyPrefab; // Prefab del enemigo a instanciar
     public float spawnInterval = 2f; // Intervalo entre spawns regulares
 
-    private int spawnMin = 1; // N˙mero inicial mÌnimo de enemigos
-    private int spawnMax = 3; // N˙mero inicial m·ximo de enemigos
-    private bool isExtraSpawning = false; // Indica si SpawnExtraEnemies est· activo
+    private int spawnMin = 1; // N√∫mero inicial m√≠nimo de enemigos
+    private int spawnMax = 3; // N√∫mero inicial m√°ximo de enemigos
+    private bool isExtraSpawning = false; // Indica si SpawnExtraEnemies est√° activo
     private bool isLevelFinished = false; // Indica si el nivel ya ha terminado
 
-    public GameObject victoryVFX; // VFX que se activar· al final
-    public AudioClip victoryClip; // Audio que se reproducir· al final
+    [SerializeField] private GameObject Victory;
+
+
+    public GameObject victoryVFX; // VFX que se activar√° al final
+    public AudioClip victoryClip; // Audio que se reproducir√° al final
     public AudioClip startSceneClip;
+
     void Start()
     {
-        FindClosestPortals(); // Buscar los portales m·s cercanos al iniciar
+        FindClosestPortals(); // Buscar los portales m√°s cercanos al iniciar
         StartCoroutine(SpawnEnemies());
         StartCoroutine(UpdateSpawnLimits());
         StartCoroutine(SpawnExtraEnemies());
@@ -41,7 +45,7 @@ public class EnemySpawner : MonoBehaviour
 
     private void Awake()
     {
-        FindClosestPortals(); // Buscar los portales m·s cercanos al iniciar
+        FindClosestPortals(); // Buscar los portales m√°s cercanos al iniciar
     }
 
     void FindClosestPortals()
@@ -61,7 +65,7 @@ public class EnemySpawner : MonoBehaviour
         bottomLeftPortal = FindClosestPortal(bottomLeft, allSpawns);
         bottomRightPortal = FindClosestPortal(bottomRight, allSpawns);
 
-        Debug.Log("Portales m·s cercanos asignados correctamente.");
+        Debug.Log("Portales m√°s cercanos asignados correctamente.");
     }
 
     GameObject FindClosestPortal(GameObject referencePoint, GameObject[] allSpawns)
@@ -88,7 +92,7 @@ public class EnemySpawner : MonoBehaviour
         {
             if (isLevelFinished) yield break;
 
-            // Si SpawnExtraEnemies est· activo, espera
+            // Si SpawnExtraEnemies est√° activo, espera
             if (isExtraSpawning)
             {
                 yield return null;
@@ -173,14 +177,14 @@ public class EnemySpawner : MonoBehaviour
             return;
         }
 
-        // Lista de Ìndices para iterar por todos los spawners
+        // Lista de √≠ndices para iterar por todos los spawners
         List<int> spawnerIndices = new List<int>();
         for (int i = 0; i < selectedSpawnerList.Count; i++)
         {
             spawnerIndices.Add(i);
         }
 
-        // Mezclar los Ìndices para seleccionar spawners aleatoriamente
+        // Mezclar los √≠ndices para seleccionar spawners aleatoriamente
         ShuffleList(spawnerIndices);
 
         foreach (int index in spawnerIndices)
@@ -192,23 +196,23 @@ public class EnemySpawner : MonoBehaviour
                 continue; // Ignorar spawners desactivados o nulos
             }
 
-            // Obtener la posiciÛn actual del spawner
+            // Obtener la posici√≥n actual del spawner
             Vector3 currentPosition = spawner.transform.position;
 
-            // Validar si la posiciÛn es navegable
+            // Validar si la posici√≥n es navegable
             if (NavMesh.SamplePosition(currentPosition, out NavMeshHit hit, 0.5f, NavMesh.AllAreas))
             {
-                // Instanciar el enemigo en una posiciÛn v·lida
+                // Instanciar el enemigo en una posici√≥n v√°lida
                 GameObject enemy = EnemyPool.Instance.requestEnemy();
                 enemy.transform.position = hit.position;
                 enemy.transform.rotation = Quaternion.identity;
-                Debug.Log($"Enemigo instanciado en posiciÛn v·lida cerca de {spawner.name}");
+                Debug.Log($"Enemigo instanciado en posici√≥n v√°lida cerca de {spawner.name}");
                 return;
             }
         }
 
-        // Si no se encuentra una posiciÛn v·lida, buscar fuera de la lista seleccionada
-        Debug.LogWarning("No se encontrÛ una posiciÛn v·lida en la lista seleccionada. Buscando otra posiciÛn v·lida...");
+        // Si no se encuentra una posici√≥n v√°lida, buscar fuera de la lista seleccionada
+        Debug.LogWarning("No se encontr√≥ una posici√≥n v√°lida en la lista seleccionada. Buscando otra posici√≥n v√°lida...");
 
         GameObject[] allSpawners = GameObject.FindGameObjectsWithTag("EnemySpawn");
         foreach (GameObject spawner in allSpawners)
@@ -225,12 +229,12 @@ public class EnemySpawner : MonoBehaviour
                 GameObject enemy = EnemyPool.Instance.requestEnemy();
                 enemy.transform.position = hit.position;
                 enemy.transform.rotation = Quaternion.identity;
-                Debug.Log($"Enemigo instanciado fuera de la lista inicial, en posiciÛn v·lida cerca de {spawner.name}");
+                Debug.Log($"Enemigo instanciado fuera de la lista inicial, en posici√≥n v√°lida cerca de {spawner.name}");
                 return;
             }
         }
 
-        Debug.LogWarning("No se encontrÛ ninguna posiciÛn v·lida dentro o fuera de la lista seleccionada.");
+        Debug.LogWarning("No se encontr√≥ ninguna posici√≥n v√°lida dentro o fuera de la lista seleccionada.");
     }
 
 
@@ -261,21 +265,21 @@ public class EnemySpawner : MonoBehaviour
 
     IEnumerator FinishLevelWithEffects()
     {
-        Debug.Log("°Todos los portales han sido destruidos! Nivel terminado.");
+        Debug.Log("¬°Todos los portales han sido destruidos! Nivel terminado.");
 
-        // Activar el VFX si est· asignado
+        // Activar el VFX si est√° asignado
         if (victoryVFX != null)
         {
             victoryVFX.SetActive(true);
         }
 
-        // Reproducir el audio si est· asignado
+        // Reproducir el audio si est√° asignado
         if (AudioManager.instance != null && victoryClip != null)
         {
             AudioManager.instance.PlaySFX(victoryClip);
         }
 
-        // Esperar la duraciÛn del audio o un tiempo fijo
+        // Esperar la duraci√≥n del audio o un tiempo fijo
         float delay = (victoryClip != null) ? victoryClip.length : 3f;
         yield return new WaitForSeconds(delay);
 
@@ -290,7 +294,7 @@ public class EnemySpawner : MonoBehaviour
         }
         else if (SceneManager.GetActiveScene().name == "Level3")
         {
-            SceneManager.LoadScene(4);
+            Victory.SetActive(true);
         }
     }
 }
