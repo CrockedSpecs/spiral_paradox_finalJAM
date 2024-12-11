@@ -27,6 +27,9 @@ public class EnemySpawner : MonoBehaviour
     private bool isExtraSpawning = false; // Indica si SpawnExtraEnemies está activo
     private bool isLevelFinished = false; // Indica si el nivel ya ha terminado
 
+    public GameObject victoryVFX; // VFX que se activará al final
+    public AudioClip victoryClip; // Audio que se reproducirá al final
+    public AudioClip startSceneClip;
     void Start()
     {
         FindClosestPortals(); // Buscar los portales más cercanos al iniciar
@@ -44,7 +47,15 @@ public class EnemySpawner : MonoBehaviour
     void FindClosestPortals()
     {
         GameObject[] allSpawns = GameObject.FindGameObjectsWithTag("EnemySpawn");
-
+        
+        if (victoryVFX != null)
+        {
+            victoryVFX.SetActive(false); // Desactivar el VFX al inicio
+        }
+        if (AudioManager.instance != null && startSceneClip != null)
+        {
+            AudioManager.instance.PlaySFX(startSceneClip);
+        }
         topLeftPortal = FindClosestPortal(topLeft, allSpawns);
         topRightPortal = FindClosestPortal(topRight, allSpawns);
         bottomLeftPortal = FindClosestPortal(bottomLeft, allSpawns);
@@ -245,9 +256,30 @@ public class EnemySpawner : MonoBehaviour
 
     void FinishLevel()
     {
-        
+        StartCoroutine(FinishLevelWithEffects());
+    }
+
+    IEnumerator FinishLevelWithEffects()
+    {
         Debug.Log("¡Todos los portales han sido destruidos! Nivel terminado.");
-        // Aquí puedes implementar cualquier lógica adicional para el fin del nivel
+
+        // Activar el VFX si está asignado
+        if (victoryVFX != null)
+        {
+            victoryVFX.SetActive(true);
+        }
+
+        // Reproducir el audio si está asignado
+        if (AudioManager.instance != null && victoryClip != null)
+        {
+            AudioManager.instance.PlaySFX(victoryClip);
+        }
+
+        // Esperar la duración del audio o un tiempo fijo
+        float delay = (victoryClip != null) ? victoryClip.length : 3f;
+        yield return new WaitForSeconds(delay);
+
+        // Cambiar de escena
         if (SceneManager.GetActiveScene().name == "Level1")
         {
             SceneManager.LoadScene(2);

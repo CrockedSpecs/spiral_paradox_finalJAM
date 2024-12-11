@@ -15,10 +15,10 @@ Material:
   m_ValidKeywords:
   - ENUM_1BB38181_A
   m_InvalidKeywords: []
-  m_LightmapFlags: 2
-  m_EnableInstancingVariants: 1
+  m_LightmapFlags: 1
+  m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 1
-  m_CustomRenderQueue: -1
+  m_CustomRenderQueue: 3000
   stringTagMap: {}
   disabledShaderPasses: []
   m_LockedProperties: 
@@ -44,19 +44,19 @@ Material:
     m_Ints: []
     m_Floats:
     - ENUM_1BB38181: 0
-    - Vector1_13E478A0: 20.37
-    - Vector1_469FF4D: 5.35
-    - Vector1_5DDB167B: 0.65
-    - Vector1_964BC046: 10.9
-    - Vector1_97436D56: 0.5
-    - Vector1_AEAD50FF: 9.2
-    - Vector1_DBF011C: 2.94
+    - Vector1_13E478A0: 19.8
+    - Vector1_469FF4D: 7.4
+    - Vector1_5DDB167B: 1
+    - Vector1_964BC046: 7.19
+    - Vector1_97436D56: -1.8
+    - Vector1_AEAD50FF: 3.69
+    - Vector1_DBF011C: -5.9
     - Vector1_DE6ED6BB: 0
-    - Vector1_FBBAF542: 0.2
+    - Vector1_FBBAF542: 1
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:
-    - Color_739931D1: {r: 0.09333106, g: 1.6208085, b: 0.16107413, a: 1}
+    - Color_739931D1: {r: 0.0701979, g: 1.6535513, b: 0.23732962, a: 1}
   m_BuildTextureStacks: []
 --- !u!114 &3701280625088972381
 MonoBehaviour:
