@@ -9,7 +9,7 @@ public class Bullet : MonoBehaviour
     private int bulletDamage;
     private int bulletPenetration;
 
-    [SerializeField] private Transform bulletInitialPosition;
+    [SerializeField] private Vector3 bulletOffset;
 
     [SerializeField] private ShootBullet subjectToObserver;
 
@@ -33,7 +33,7 @@ public class Bullet : MonoBehaviour
 
     private void OnEnable()
     {
-        transform.position = bulletInitialPosition.position;
+        transform.position = transform.parent.position + bulletOffset;
         StartCoroutine(TimeToTurnOff());
     }
 

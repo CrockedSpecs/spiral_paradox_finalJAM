@@ -27,6 +27,8 @@ public class EnemySpawner : MonoBehaviour
     private bool isExtraSpawning = false; // Indica si SpawnExtraEnemies está activo
     private bool isLevelFinished = false; // Indica si el nivel ya ha terminado
 
+    [SerializeField] private GameObject Victory;
+
     void Start()
     {
         FindClosestPortals(); // Buscar los portales más cercanos al iniciar
@@ -258,7 +260,7 @@ public class EnemySpawner : MonoBehaviour
         }
         else if (SceneManager.GetActiveScene().name == "Level3")
         {
-            SceneManager.LoadScene(4);
+            Victory.SetActive(true);
         }
     }
 }
