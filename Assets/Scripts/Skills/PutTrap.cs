@@ -49,13 +49,13 @@ public class PutTrap : MonoBehaviour
                 trapDamage?.Invoke();
                 break;
             case 2:
-                trapDamage?.Invoke();
+                putVelocity = 7;
                 break;
             case 3:
                 trapRadius?.Invoke();
                 break;
             case 4:
-                putVelocity = 5;
+                putVelocity = 4;
                 break;
             case 5:
                 trapRadius?.Invoke();

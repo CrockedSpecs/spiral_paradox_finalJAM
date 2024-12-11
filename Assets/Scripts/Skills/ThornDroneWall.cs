@@ -48,14 +48,14 @@ public class ThornDroneWall : MonoBehaviour
                 drones[1].SetActive(true);
                 break;
             case 2:
-                droneDamage?.Invoke();
+                rotationSpeed = 100;
                 break;
             case 3:
                 drones[2].SetActive(true);
                 drones[3].SetActive(true);
                 break;
             case 4:
-                rotationSpeed = 100;
+                rotationSpeed = 150;
                 break;
             case 5:
                 drones[4].SetActive(true);

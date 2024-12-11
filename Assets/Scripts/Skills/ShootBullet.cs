@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class ShootBullet : MonoBehaviour
@@ -6,7 +7,7 @@ public class ShootBullet : MonoBehaviour
     //Declarations
     public int skillLevel;
 
-    public GameObject Bullet;
+    public List<GameObject> bullets;
 
     //ForBullets
     public event Action bulletDamage;
@@ -17,21 +18,64 @@ public class ShootBullet : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        playerFollow = GameObject.FindGameObjectWithTag("Player").transform;
+        InvokeRepeating("ShootBalls", 7, 7);
     }
 
     // Update is called once per frame
     void Update()
     {
-        ShootBalls();
+        
     }
 
     private void ShootBalls()
     {
-        //Throw the pearls
-        if (Input.GetMouseButtonDown(0))
+        switch (skillLevel)
         {
-            Instantiate(Bullet, transform.position + new Vector3(0f, 1f, 0f), playerFollow.rotation);
+            default:
+
+                break;
+            case 1:
+                bullets[0].SetActive(true);
+                bullets[1].SetActive(true);
+                break;
+            case 2:
+                bullets[0].SetActive(true);
+                bullets[1].SetActive(true);
+                bullets[2].SetActive(true);
+                bullets[3].SetActive(true);
+                break;
+            case 3:
+                bullets[0].SetActive(true);
+                bullets[1].SetActive(true);
+                bullets[2].SetActive(true);
+                bullets[3].SetActive(true);
+                bullets[4].SetActive(true);
+                bullets[5].SetActive(true);
+                break;
+            case 4:
+                bullets[0].SetActive(true);
+                bullets[1].SetActive(true);
+                bullets[2].SetActive(true);
+                bullets[3].SetActive(true);
+                bullets[4].SetActive(true);
+                bullets[5].SetActive(true);
+                bullets[6].SetActive(true);
+                bullets[7].SetActive(true);
+                break;
+            case 5:
+                bullets[0].SetActive(true);
+                bullets[1].SetActive(true);
+                bullets[2].SetActive(true);
+                bullets[3].SetActive(true);
+                bullets[4].SetActive(true);
+                bullets[5].SetActive(true);
+                bullets[6].SetActive(true);
+                bullets[7].SetActive(true);
+                bullets[8].SetActive(true);
+                bullets[9].SetActive(true);
+                bullets[10].SetActive(true);
+                bullets[11].SetActive(true);
+                break;
         }
     }
 
@@ -53,19 +97,26 @@ public class ShootBullet : MonoBehaviour
 
                 break;
             case 1:
-                bulletPenetration?.Invoke();
+                bullets[0].SetActive(true);
+                bullets[1].SetActive(true);
                 break;
             case 2:
-                bulletDamage?.Invoke();
+                bullets[2].SetActive(true);
+                bullets[3].SetActive(true);
                 break;
             case 3:
-                bulletPenetration?.Invoke();
+                bullets[4].SetActive(true);
+                bullets[5].SetActive(true);
                 break;
             case 4:
-                bulletDamage?.Invoke();
+                bullets[6].SetActive(true);
+                bullets[7].SetActive(true);
                 break;
             case 5:
-                bulletPenetration?.Invoke();
+                bullets[8].SetActive(true);
+                bullets[9].SetActive(true);
+                bullets[10].SetActive(true);
+                bullets[11].SetActive(true);
                 break;
         }
     }
