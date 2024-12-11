@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
@@ -7,14 +8,13 @@ public class Bullet : MonoBehaviour
 
     private int bulletDamage;
     private int bulletPenetration;
+    [SerializeField] private Transform bulletSpawn;
 
     [SerializeField] private ShootBullet subjectToObserver;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        bulletPosition = transform.position;
-
         bulletDamage = 1;
 
         if (subjectToObserver != null)
@@ -27,10 +27,13 @@ public class Bullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Vector3.Distance(bulletPosition, transform.position) >= 40)
-        {
-            Destroy(gameObject);
-        }
+
+    }
+
+    private void OnEnable()
+    {
+        transform.position = bulletSpawn.position;
+        StartCoroutine(TimeToTurnOff());
     }
 
     public void IncreaseBulletDamage()
@@ -41,5 +44,11 @@ public class Bullet : MonoBehaviour
     public void IncreaseBulletPenetration()
     {
         bulletPenetration++;
+    }
+
+    IEnumerator TimeToTurnOff()
+    {
+        yield return new WaitForSeconds(1);
+        gameObject.SetActive(false);
     }
 }

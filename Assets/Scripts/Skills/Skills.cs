@@ -9,10 +9,10 @@ public class Skills : MonoBehaviour
     [SerializeField] private List<GameObject> skills;
     public List<int> skillsLevels;
 
-    private string[] skill1Description = { "A group of drones that deals damage", "Drone damage +1", "Drones + 2", "Increases rotation speed", "Drones + 4", };
+    private string[] skill1Description = { "A group of drones that deals damage", "Increases rotation speed", "Drones + 2", "Increases rotation speed", "Drones + 4", };
     private string[] skill2Description = { "An area that slowsdown enemy movement", "Increase the radius", "Increases the amount that slow dowm + 2", "Increase the radius", "An area that stops enemies", };
-    private string[] skill3Description = { "Shot", "Increase the penetration +1", "Increase the damage +1", "Increase the penetration +1", "Increase the damage +1 and penetration +1", };
-    private string[] skill4Description = { "Place a trap at regular periods", "Increase the damage +1", "Increase the radius", "Increases the speed of placing the trap", "Increase the radius", };
+    private string[] skill3Description = { "A group of ammunition that shoots from the player", "Increase ammunition +2", "Increase ammunition +2", "Increase ammunition +2", "Increase ammunition +4", };
+    private string[] skill4Description = { "Place a trap at regular periods", "Increases the speed of placing the trap", "Increase the radius", "Increases the speed of placing the trap", "Increase the radius", };
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

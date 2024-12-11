@@ -6,7 +6,7 @@ public class Enemy : MonoBehaviour
 {
     // Declarations
     private int life;
-    private EnemyFollowPlayer enemyFollowPlayer;
+    public float movementSpeed;
 
     [SerializeField] private GameObject hitEffect; // Prefab del efecto visual
 
@@ -19,10 +19,10 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         life = 1;
-        enemyFollowPlayer = GetComponent<EnemyFollowPlayer>();
 
         player = GameObject.FindGameObjectWithTag("Player");
         agent = GetComponent<NavMeshAgent>();
+        movementSpeed = agent.speed;
 
         spawnExperience = GameObject.FindGameObjectWithTag("SpawnExperience").GetComponent<SpawnExperience>();
     }
@@ -53,11 +53,11 @@ public class Enemy : MonoBehaviour
         }
         if (other.CompareTag("Zone1"))
         {
-            enemyFollowPlayer.movementSpeedChange /= other.GetComponent<TimeZone>().speedDecrease;
+            agent.speed /= other.GetComponent<TimeZone>().speedDecrease;
         }
         if (other.CompareTag("Zone2"))
         {
-            enemyFollowPlayer.movementSpeedChange = 0;
+            agent.speed = 0;
         }
         if (other.CompareTag("TrapArea"))
         {
@@ -69,11 +69,11 @@ public class Enemy : MonoBehaviour
     {
         if (other.CompareTag("Zone1"))
         {
-            enemyFollowPlayer.movementSpeedChange = enemyFollowPlayer.movementSpeed;
+            agent.speed = movementSpeed;
         }
         if (other.CompareTag("Zone2"))
         {
-            enemyFollowPlayer.movementSpeedChange = other.GetComponent<TimeZone>().speedDecrease;
+            agent.speed = other.GetComponent<TimeZone>().speedDecrease;
         }
     }
 
